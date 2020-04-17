@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Storage;
+use Image;
 
 class DashboardController extends Controller
 {
@@ -30,4 +32,11 @@ class DashboardController extends Controller
         return view('dashboard')->with('posts',$user->posts);
 
     }
+
+    public function GetImage($image=null)
+    {
+        return Image::make(storage_path("app/public/user_image/" . $image))->response();
+    }
+
+
 }

@@ -3,36 +3,41 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Country;
+use App\Post;
+use PDF;
 
 class PagesController extends Controller
 {
-    public function  index(){
-        $title="Welcome to Travelo";
-       // return view('pages.index',compact('title'));
-        return view('pages.index')->with('title',$title);
-    }
-    public function  about(){
-        $title="about";
-      // return view('pages.about',compact('title'));
-        return view('pages.about')->with('title',$title);
-    }
-    public function  services(){
-        $data=array(
-            'title'=> 'Services',
-            'services'=> ['France','Netherlands','Germany']
-        );
+    public function index()
+    {
+        $title = "Welcome to Travelo";
         // return view('pages.index',compact('title'));
-        return view('pages.services')->with($data);
+        $countries = Country::all();
+        return view('pages.index')->with('countries', $countries);
     }
-    public function  register(){
-        $title="register";
+
+
+    public function  adminpanel(){
+        $title="Admin";
          // return view('pages.index',compact('title'));
-        return view('pages.register')->with('title',$title);
+        return view('pages.adminpanel')->with('title',$title);
     }
 
     public function  articles(){
         $title="articles";
         // return view('pages.about',compact('title'));
         return view('pages.articles')->with('title',$title);
+    }
+
+    public function getPostsByCountry($id) {
+        $posts= post::where('country_id', $id)->paginate(10);
+        return view('posts.index')->with ('posts',$posts);
+    }
+
+    public function getPdf($id){
+        $post = Post::find($id);
+        $pdf = PDF::loadView('pdf', ['post'=>$post]);
+        return $pdf->download($post->title . '.pdf');
     }
 }

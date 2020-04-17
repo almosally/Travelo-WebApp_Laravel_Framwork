@@ -79,16 +79,18 @@
                 </div>
             @endif
 
-            <div class="content">
-                <div class="title m-b-md">
-                    Travelo
-                </div>
-                <div class="links">
 
-                    <a href="{{ route('register') }}">{{ __('Register') }}</a>
-                    <a href="{{ route('login') }}">{{ __('Login') }}</a>
-                </div>
-            </div>
+            {{--<div class="content">--}}
+                {{--<div class="title m-b-md">--}}
+                    {{--Travelo--}}
+                {{--</div>--}}
+                {{--<div class="links">--}}
+                    {{----}}
+                    {{--<a href="{{ route('register') }}">{{ __('Register') }}</a>--}}
+                    {{--<a href="{{ route('login') }}">{{ __('Login') }}</a>--}}
+                {{--</div>--}}
+            {{--</div>--}}
+
         </div>
     </body>
 </html>

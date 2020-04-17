@@ -10,9 +10,22 @@
 
     <title>{{ config('app.name', 'Travelo') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
 
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}"></script>
+
+    <!--bootstrap-->
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -30,10 +43,10 @@
 
     </div>
 </div>
-<!--
-<script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+<script src="{{asset('vendor/unisharp/laravel-ckeditor/ckeditor.js')}}"></script>
 <script>
-    CKEDITOR.replace('article-ckeditor');
-</script>-->
+    CKEDITOR.replace( 'article-ckeditor' );
+</script>
+
 </body>
 </html>
